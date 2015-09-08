@@ -276,12 +276,13 @@
 						return this.multiDatesPicker.dates[type];
 					case 'string':
 					case 'number':
-						var o_dates = new Array();
-						for(var i in this.multiDatesPicker.dates[type])
+						var o_dates = [],
+							typed_dates = this.multiDatesPicker.dates[type];
+						for(var i = 0; i < typed_dates.length; i++)
 							o_dates.push(
 								dateConvert.call(
-									this, 
-									this.multiDatesPicker.dates[type][i], 
+									this,
+									typed_dates[i],
 									format
 								)
 							);
